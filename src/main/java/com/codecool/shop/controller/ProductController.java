@@ -42,11 +42,12 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        String productId = req.getParameter("name");
+        String productId = req.getParameter("product_name");
         ProductDaoMem productCategoryDaoMem = ProductDaoMem.getInstance();
         Product product = productCategoryDaoMem.find(Integer.parseInt(productId));
         ShoppingCard shoppingCard = ShoppingCard.getInstance();
         shoppingCard.addShoppingCard(product);
+        System.out.println(shoppingCard.getShoppingCardList());
         resp.sendRedirect("/");
     }
 
