@@ -42,5 +42,15 @@ public class CartController extends HttpServlet {
         }
         engine.process("product/shopping-cart.html", context, resp.getWriter());
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String productId = req.getParameter("delete-product");
+        Product procduct = ProductDaoMem.getInstance().find(Integer.parseInt(productId));
 
-}
+        ShoppingCard shoppingCard = ShoppingCard.getInstance();
+        shoppingCard.removeFromShoppingCard(procduct);
+        resp.sendRedirect("/shopping-cart");
+    }
+
+
+    }

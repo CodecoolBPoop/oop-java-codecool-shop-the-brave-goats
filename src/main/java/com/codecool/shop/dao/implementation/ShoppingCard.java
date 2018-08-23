@@ -35,6 +35,7 @@ public class ShoppingCard {
     public void removeFromShoppingCard(Product product){
         if(shoppingCardList.containsKey(product)){
             shoppingCardList.remove(product);
+
         }
     }
 
