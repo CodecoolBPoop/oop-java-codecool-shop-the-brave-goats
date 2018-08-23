@@ -71,10 +71,12 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name" th:text="${prod.name}"><a href="#">Product name</a></h3>
-                            <h4 class="product-price"><span class="qty" th:text="${number}"></span>
+                            <h4 class="product-price"><span class="qty" th:text="${prod.numberOfProduct}"></span>
                                 x <span th:text="${prod.defaultPrice}"></span> USD </h4>
                         </div>
-                        <button class="delete"><i class="fa fa-close"></i></button>
+                        <form action="/shopping-cart" method="post">
+                            <button name="delete-product" th:value="${prod.id}" class="delete"><i class="fa fa-close"></i></button>
+                        </form>
                     </div>
                 </div>
 

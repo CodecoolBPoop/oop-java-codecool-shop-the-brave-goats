@@ -8,7 +8,15 @@ public class Product extends BaseModel {
     private Currency defaultCurrency;
     private ProductCategory productCategory;
     private Supplier supplier;
+    private int numberOfProduct;
 
+    public void setNumberOfProduct(int number){
+        this.numberOfProduct = number;
+    }
+
+    public int getNumberOfProduct(){
+        return numberOfProduct;
+    }
 
     public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
         super(name, description);
