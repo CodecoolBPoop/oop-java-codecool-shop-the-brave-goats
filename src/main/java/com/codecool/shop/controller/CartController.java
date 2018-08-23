@@ -34,10 +34,14 @@ public class CartController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         List<Product> productList = new ArrayList<>();
         for (Product key :  mapListOfProducts.keySet()) {
-            Integer num = mapListOfProducts.get(key);
-            productList.add(key);
+            Integer numberOfProduct = mapListOfProducts.get(key);
 
-            context.setVariable("number", num);
+            key.setNumberOfProduct(numberOfProduct);
+            productList.add(key);
+            //productList.add(numberOfProduct);
+
+
+            context.setVariable("numberOfProduct", numberOfProduct);
             context.setVariable("products", productList);
         }
         engine.process("product/shopping-cart.html", context, resp.getWriter());

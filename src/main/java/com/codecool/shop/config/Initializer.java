@@ -38,9 +38,9 @@ public class Initializer implements ServletContextListener {
         productCategoryDataStore.add(fakeDegrees);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Uranium", 0, "USD", "Fantastic price. Large content ecosystem. Helpful technical support.", weapons, northKorea));
-        productDataStore.add(new Product("Kalashnikov AK-47", 0, "USD", "A gas-operated, 7.62 * 39 mm assault rifle.", weapons, russia));
-        productDataStore.add(new Product("Hit men", 0, "USD", "The toughest guys from the Russian mob.", weapons, russia));
-        productDataStore.add(new Product("Green Fox", 0, "USD", "What does the fox say?", fakeDegrees, hungary));
+        productDataStore.add(new Product("Uranium", 1200, "USD", "Fantastic price. Large content ecosystem. Helpful technical support.", weapons, northKorea));
+        productDataStore.add(new Product("Kalashnikov AK-47", 300, "USD", "A gas-operated, 7.62 * 39 mm assault rifle.", weapons, russia));
+        productDataStore.add(new Product("Hit men", 100, "USD", "The toughest guys from the Russian mob.", weapons, russia));
+        productDataStore.add(new Product("Green Fox", 14400, "USD", "What does the fox say?", fakeDegrees, hungary));
     }
 }
