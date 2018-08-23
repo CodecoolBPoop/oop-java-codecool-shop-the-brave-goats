@@ -44,4 +44,6 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
     public List<ProductCategory> getAll() {
         return data;
     }
+
+    public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
 }

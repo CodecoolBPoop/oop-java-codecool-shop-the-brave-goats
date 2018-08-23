@@ -24,18 +24,27 @@ public class Initializer implements ServletContextListener {
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
         //setting up a new supplier
-        Supplier amazon = new Supplier("Amazon", "Digital content and services");
-        supplierDataStore.add(amazon);
-        Supplier lenovo = new Supplier("Lenovo", "Computers");
-        supplierDataStore.add(lenovo);
+        Supplier northKorea = new Supplier("North Korea", "Dictatorial regime.");
+        supplierDataStore.add(northKorea);
+        Supplier russia = new Supplier("Russia", "Wannabe superpower.");
+        supplierDataStore.add(russia);
+        Supplier hungary = new Supplier("Hungary", "Illiberal catholic democracy.");
+        supplierDataStore.add(hungary);
+        Supplier usa = new Supplier("USA", "Great again.");
+        supplierDataStore.add(usa);
 
         //setting up a new product category
-        ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(tablet);
+        ProductCategory weapons = new ProductCategory("Weapons", "We'll see", "Weapons.");
+        productCategoryDataStore.add(weapons);
+        ProductCategory fakeDegrees = new ProductCategory("Fake Degrees", "We'll see", "Fake degrees,");
+        productCategoryDataStore.add(fakeDegrees);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", 49.9f, "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", 479, "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        productDataStore.add(new Product("Amazon Fire HD 8", 89, "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
+        productDataStore.add(new Product("Nuclear Resources", 9000000, "USD", "Fantastic price. Large content ecosystem. Helpful technical support.", weapons, northKorea));
+        productDataStore.add(new Product("Kalashnikov AK-47", 40000, "USD", "A gas-operated, 7.62 * 39 mm assault rifle.", weapons, russia));
+        productDataStore.add(new Product("Hit man", 18000, "USD", "The toughest guys from the Russian mob.", weapons, russia));
+        productDataStore.add(new Product("Green Fox Academy", 600, "USD", "What does the fox say?", fakeDegrees, hungary));
+        productDataStore.add(new Product("Codecool OOP Exam Pass", 1, "USD", "OOPs, I passed it again.", fakeDegrees, hungary));
+        productDataStore.add(new Product("Theology of the Flying Spaghetti Monster", 10500, "USD", "Holy Pastafarianism degree by the Church of the Flying Spaghetti Monster.", fakeDegrees, usa));
     }
 }
