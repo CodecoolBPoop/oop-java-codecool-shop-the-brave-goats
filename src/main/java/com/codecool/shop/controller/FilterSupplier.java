@@ -36,6 +36,7 @@ public class FilterSupplier extends HttpServlet {
         context.setVariable("supplier1", supplierCategoryStore.find(1));
         context.setVariable("supplier2", supplierCategoryStore.find(2));
         context.setVariable("supplier3", supplierCategoryStore.find(3));
+        context.setVariable("supplier4", supplierCategoryStore.find(4));
         context.setVariable("products", productDataStore.getBy(SupplierDaoMem.getInstance().findSupplier(choosedSupplier)));
         engine.process("product/index.html", context, resp.getWriter());
     }
