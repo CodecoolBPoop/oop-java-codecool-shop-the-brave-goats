@@ -8,9 +8,7 @@ import java.util.Map;
 public class ShoppingCard {
     //private static List<Product> shoppingCardList = new ArrayList<>();
     private static Map<Product, Integer> shoppingCardList = new HashMap<>();
-
     private static ShoppingCard shoppingCardInstance = null;
-
     private ShoppingCard(){}
 
     public static ShoppingCard getInstance(){

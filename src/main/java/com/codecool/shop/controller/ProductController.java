@@ -45,6 +45,7 @@ public class ProductController extends HttpServlet {
         String productId = req.getParameter("product_name");
         ProductDaoMem productCategoryDaoMem = ProductDaoMem.getInstance();
         Product product = productCategoryDaoMem.find(Integer.parseInt(productId));
+
         ShoppingCard shoppingCard = ShoppingCard.getInstance();
         shoppingCard.addShoppingCard(product);
         resp.sendRedirect("/");
