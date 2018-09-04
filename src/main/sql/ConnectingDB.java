@@ -14,7 +14,7 @@ public class ConnectingDB {
             System.out.println("Connected to the PostgreSQL server successfully.");
             return conn;
         }catch (SQLException ex){
-            System.out.println("Somthing wring with your Connection");
+            System.out.println("Somthing woing with your Connection");
         }
         return null;
     }
