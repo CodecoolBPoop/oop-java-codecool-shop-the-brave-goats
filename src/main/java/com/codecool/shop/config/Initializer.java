@@ -43,8 +43,8 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Nuclear Resources", 9000000, "USD", "Fantastic price. Large content ecosystem. Helpful technical support.", weapons, northKorea));
         productDataStore.add(new Product("Kalashnikov AK-47", 40000, "USD", "A gas-operated, 7.62 * 39 mm assault rifle.", weapons, russia));
         productDataStore.add(new Product("Hit man", 18000, "USD", "The toughest guys from the Russian mob.", weapons, russia));
-        productDataStore.add(new Product("Green Fox Academy", 600, "USD", "What does the fox say?", fakeDegrees, hungary));
-        productDataStore.add(new Product("Codecool OOP Exam Pass", 1, "USD", "OOPs, I passed it again.", fakeDegrees, hungary));
+        productDataStore.add(new Product("Green Fox Academy", 6, "USD", "What does the fox say?", fakeDegrees, hungary));
+        productDataStore.add(new Product("Codecool OOP Exam Pass", 100, "USD", "OOPs, I passed it again.", fakeDegrees, hungary));
         productDataStore.add(new Product("Theology of the Flying Spaghetti Monster", 10500, "USD", "Holy Pastafarianism degree by the Church of the Flying Spaghetti Monster.", fakeDegrees, usa));
     }
 }
