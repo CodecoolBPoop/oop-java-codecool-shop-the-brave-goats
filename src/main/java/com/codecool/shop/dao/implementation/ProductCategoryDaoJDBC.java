@@ -6,6 +6,7 @@ import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.sql.ConnectingDB;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
     @Override
     public List<ProductCategory> getAll() {
         try{
-            ResultSet result = ConnectingDB.executeThisQuery("SELECT * FROM product_categories;");
+            ResultSet result = ConnectingDB.executeQuery("SELECT * FROM product_categories;");
             List allProductCategories = new ArrayList();
             while(result.next()){
                 ProductCategory pr = new ProductCategory(result.getString("name"), result.getString("department"), result.getString("description"));

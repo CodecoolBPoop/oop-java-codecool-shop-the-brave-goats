@@ -21,7 +21,7 @@ public class ConnectingDB {
         return null;
     }
 
-    public static ResultSet executeThisQuery(String query){
+    public static ResultSet executeQuery(String query){
         try{
             Connection conn = getConnection();
             Statement myst = conn.createStatement();
