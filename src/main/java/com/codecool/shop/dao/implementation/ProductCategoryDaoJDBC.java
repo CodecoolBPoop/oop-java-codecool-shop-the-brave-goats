@@ -32,7 +32,7 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
         String name = category.getName();
         String department = category.getDepartment();
         String description = category.getDescription();
-        ConnectingDB.executeQuery("INSERT INTO product_categories (name, department, description) VALUES ('" + name + "', '" +department + "', '" + description + "')");
+        ConnectingDB.executeQuery("INSERT INTO product_categories (name, department, description) VALUES ('" + name + "', '" + department + "', '" + description + "')");
 //        category.setId(data.size() + 1);
 //        data.add(category);
     }
