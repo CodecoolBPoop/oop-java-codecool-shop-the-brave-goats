@@ -21,7 +21,7 @@ public class ConnectingDB {
         return null;
     }
 
-    public static ResultSet executeQuery(String query){
+    public static ResultSet executeThisQuery(String query){
         try{
             Connection conn = getConnection();
             Statement myst = conn.createStatement();
@@ -33,6 +33,8 @@ public class ConnectingDB {
         }
         return null;
     }
+
+
 
  // THIS is just a example
 //    public static void main(String[] args) throws SQLException {

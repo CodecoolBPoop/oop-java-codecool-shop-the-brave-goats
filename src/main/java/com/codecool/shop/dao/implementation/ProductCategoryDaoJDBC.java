@@ -6,7 +6,6 @@ import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.sql.ConnectingDB;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +28,10 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
 
     @Override
     public void add(ProductCategory category) {
-
+        String name = category.getName();
+        String department = category.getDepartment();
+        String description = category.getDescription();
+        ConnectingDB.executeQuery("INSERT INTO product_categories (name, department, description) VALUES ('" + name + "', '" +department + "', '" + description + "')");
 //        category.setId(data.size() + 1);
 //        data.add(category);
     }
@@ -56,10 +58,21 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
 
     @Override
     public List<ProductCategory> getAll() {
-        ResultSet result = ConnectingDB.executeQuery("SELECT * FROM product_categories");
-        return (List)result;
+        try{
+            ResultSet result = ConnectingDB.executeThisQuery("SELECT * FROM product_categories;");
+            List allProductCategories = new ArrayList();
+            while(result.next()){
+                ProductCategory pr = new ProductCategory(result.getString("name"), result.getString("department"), result.getString("description"));
+                allProductCategories.add(pr);
+            }
+            System.out.println("lista " + allProductCategories);
+            return allProductCategories;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
         //return data;
     }
 
-    public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
+    //public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
 }

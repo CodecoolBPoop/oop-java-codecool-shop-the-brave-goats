@@ -7,7 +7,9 @@ DROP TABLE IF EXISTS product_categories;
 
 CREATE TABLE product_categories(
   id INTEGER PRIMARY KEY not null,
-  name TEXT
+  name TEXT,
+  department TEXT,
+  description TEXT
 );
 
 CREATE TABLE supplier(

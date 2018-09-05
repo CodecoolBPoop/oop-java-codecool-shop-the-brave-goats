@@ -9,6 +9,7 @@ import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
+import com.codecool.shop.dao.implementation.ProductCategoryDaoJDBC;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
