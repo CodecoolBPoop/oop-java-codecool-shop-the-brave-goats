@@ -1,13 +1,15 @@
+package com.codecool.shop.sql;
+
 import java.sql.*;
 
 public class ConnectingDB {
 
-    private final String url = "jdbc:postgresql://localhost:5432/blackmarket";
-    private final String user = "";
-    private final String password = "";
+    private static final String url = "jdbc:postgresql://localhost:5432/blackmarket";
+    private static final String user = "danielszakacs";
+    private static final String password = "montana00";
 
 
-    public Connection getConnection(){
+    private static Connection getConnection(){
         try{
             Connection conn = null;
             conn = DriverManager.getConnection(url, user, password);
@@ -19,7 +21,7 @@ public class ConnectingDB {
         return null;
     }
 
-    public ResultSet executeQuery(String query){
+    public static ResultSet executeQuery(String query){
         try{
             Connection conn = getConnection();
             Statement myst = conn.createStatement();

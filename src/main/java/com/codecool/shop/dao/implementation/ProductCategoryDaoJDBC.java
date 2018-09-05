@@ -3,7 +3,9 @@ package com.codecool.shop.dao.implementation;
 
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.model.ProductCategory;
+import com.codecool.shop.sql.ConnectingDB;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,23 +28,28 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
 
     @Override
     public void add(ProductCategory category) {
-        category.setId(data.size() + 1);
-        data.add(category);
+
+//        category.setId(data.size() + 1);
+//        data.add(category);
     }
 
     @Override
     public ProductCategory find(int id) {
-        return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+         ResultSet result = ConnectingDB.executeQuery("SELECT name FROM product_categories WHERE id = " + id);
+         return (ProductCategory) result;
+        //return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }
 
     @Override
     public void remove(int id) {
-        data.remove(find(id));
+        ConnectingDB.executeQuery("DELETE FROM  product_categories WHERE id = " + id);
     }
 
     @Override
     public List<ProductCategory> getAll() {
-        return data;
+        ResultSet result = ConnectingDB.executeQuery("SELECT * FROM product_categories");
+        return (List)result;
+        //return data;
     }
 
     public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}

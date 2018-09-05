@@ -3,14 +3,26 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS addresses;
 DROP TABLE IF EXISTS shopping_carts;
 DROP TABLE IF EXISTS order_histories;
+DROP TABLE IF EXISTS product_categories;
+
+CREATE TABLE product_categories(
+  id INTEGER PRIMARY KEY not null,
+  name TEXT
+);
+
+CREATE TABLE supplier(
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT,
+  description TEXT
+);
 
 CREATE TABLE products(
   id INTEGER PRIMARY KEY NOT NULL,
   name VARCHAR(200) NOT NULL,
   price INTEGER NOT NULL,
   currency TEXT,
-  supplier TEXT,
-  product_category TEXT,
+  supplier INTEGER NOT NULL, /*  THis is a foreign key */
+  product_category INTEGER NOT NULL, /*  THis is a foreign key */
   description TEXT
 );
 
@@ -55,6 +67,12 @@ CREATE TABLE order_histories(
 
 ALTER TABLE ONLY addresses
   ADD CONSTRAINT fk_addresses_users_email FOREIGN KEY (user_email) REFERENCES users(email);
+
+ALTER TABLE ONLY products
+  ADD CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier) REFERENCES supplier(id);
+
+ALTER TABLE ONLY products
+  ADD CONSTRAINT fk_product_product_categories_id_ FOREIGN KEY (product_category) REFERENCES product_categories(id);
 
 ALTER TABLE ONLY shopping_carts
   ADD CONSTRAINT fk_shopping_carts_users_email FOREIGN KEY (user_email) REFERENCES users(email);
