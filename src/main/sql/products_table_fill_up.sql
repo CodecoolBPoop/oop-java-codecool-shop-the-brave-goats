@@ -1,7 +1,7 @@
 DELETE FROM products *;
 
-INSERT INTO public.product_categories(id, name, department, description) VALUES (1111,'weapons', 'Well see', 'Weapons');
-INSERT INTO public.product_categories(id, name, department, description) VALUES (2222, 'fakeDegrees', 'Well see', 'Fake degrees');
+INSERT INTO public.product_categories(id, name, department, description) VALUES (1,'weapons', 'Well see', 'Weapons');
+INSERT INTO public.product_categories(id, name, department, description) VALUES (2, 'fakeDegrees', 'Well see', 'Fake degrees');
 
 INSERT INTO public.supplier(id, name, description) VALUES (1, 'North Korea', 'Dictatorial regime.');
 INSERT INTO public.supplier(id, name, description) VALUES (2, 'Russia', 'Wannabe superpower.');

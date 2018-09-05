@@ -37,8 +37,8 @@ public class ProductController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 //        context.setVariables(params);
         context.setVariable("recipient", "World");
-        context.setVariable("category1", productCategoryDataStore.find(1));
-        context.setVariable("category2", productCategoryDataStore.find(2));
+        context.setVariable("category1", productCategoryDataStore.find(1).getName());
+        context.setVariable("category2", productCategoryDataStore.find(2).getName());
         context.setVariable("supplier1", supplierCategoryStore.find(1));
         context.setVariable("supplier2", supplierCategoryStore.find(2));
         context.setVariable("supplier3", supplierCategoryStore.find(3));
