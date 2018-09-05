@@ -5,8 +5,8 @@ import java.sql.*;
 public class ConnectingDB {
 
     private static final String url = "jdbc:postgresql://localhost:5432/blackmarket";
-    private static final String user = "david";
-    private static final String password = "codecool123";
+    private static final String user = "danielszakacs";
+    private static final String password = "montana00";
 
 
     private static Connection getConnection(){
@@ -37,12 +37,12 @@ public class ConnectingDB {
 
 
  // THIS is just a example
-//    public static void main(String[] args) throws SQLException {
-//        FirstExample app = new FirstExample();
-//        ResultSet st = app.executeQuery("SELECT * FROM products");
-//        while(st.next()){
-//            System.out.println(st.getString("name"));
-//
-//        }
-//    }
+    public static void main(String[] args) throws SQLException {
+        ConnectingDB app = new ConnectingDB();
+        ResultSet st = app.executeQuery("SELECT * FROM products");
+        while(st.next()){
+            System.out.println(st.getString("name"));
+
+        }
+    }
 }
