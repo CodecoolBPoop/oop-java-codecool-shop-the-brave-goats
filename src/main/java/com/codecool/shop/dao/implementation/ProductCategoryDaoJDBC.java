@@ -6,12 +6,13 @@ import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.sql.ConnectingDB;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCategoryDaoJDBC implements ProductCategoryDao {
 
-    private List<ProductCategory> data = new ArrayList<>();
+    //private List<ProductCategory> data = new ArrayList<>();
     private static ProductCategoryDaoJDBC instance = null;
 
     /* A private Constructor prevents any other class from instantiating.
@@ -28,29 +29,51 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
 
     @Override
     public void add(ProductCategory category) {
-
+        String name = category.getName();
+        String department = category.getDepartment();
+        String description = category.getDescription();
+        ConnectingDB.executeThisQuery("INSERT INTO product_categories (name, department, description) VALUES ('" + name + "', '" +department + "', '" + description + "')");
 //        category.setId(data.size() + 1);
 //        data.add(category);
     }
 
     @Override
     public ProductCategory find(int id) {
-         ResultSet result = ConnectingDB.executeQuery("SELECT name FROM product_categories WHERE id = " + id);
-         return (ProductCategory) result;
+        try {
+            ResultSet result = ConnectingDB.executeThisQuery("SELECT * FROM product_categories WHERE id = " + id );
+            while(result.next()){
+                ProductCategory pr = new ProductCategory(result.getString("name"), result.getString("department"), result.getString("description"));
+                return pr;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
         //return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }
 
     @Override
     public void remove(int id) {
-        ConnectingDB.executeQuery("DELETE FROM  product_categories WHERE id = " + id);
+        ConnectingDB.executeThisQuery("DELETE FROM  product_categories WHERE id = " + id);
     }
 
     @Override
     public List<ProductCategory> getAll() {
-        ResultSet result = ConnectingDB.executeQuery("SELECT * FROM product_categories");
-        return (List)result;
+        try{
+            ResultSet result = ConnectingDB.executeThisQuery("SELECT * FROM product_categories;");
+            List allProductCategories = new ArrayList();
+            while(result.next()){
+                ProductCategory pr = new ProductCategory(result.getString("name"), result.getString("department"), result.getString("description"));
+                allProductCategories.add(pr);
+            }
+            System.out.println("lista " + allProductCategories);
+            return allProductCategories;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
         //return data;
     }
 
-    public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
+    //public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
 }

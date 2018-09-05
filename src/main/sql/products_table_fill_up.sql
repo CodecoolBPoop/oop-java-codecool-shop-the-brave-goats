@@ -1,12 +1,12 @@
 DELETE FROM products *;
 
-INSERT INTO public.product_categories(id, name) VALUES (1,'weapons');
-INSERT INTO public.product_categories(id, name) VALUES (2, 'fakeDegrees');
+INSERT INTO public.product_categories(id, name, department, description) VALUES (1111,'weapons', 'Well see', 'Weapons');
+INSERT INTO public.product_categories(id, name, department, description) VALUES (2222, 'fakeDegrees', 'Well see', 'Fake degrees');
 
-INSERT INTO public.supplier(id, name) VALUES (1, 'North Korea');
-INSERT INTO public.supplier(id, name) VALUES (2, 'Russia');
-INSERT INTO public.supplier(id, name) VALUES (3, 'Hungary');
-INSERT INTO public.supplier(id, name) VALUES (4, 'USA');
+INSERT INTO public.supplier(id, name, description) VALUES (1, 'North Korea', 'Dictatorial regime.');
+INSERT INTO public.supplier(id, name, description) VALUES (2, 'Russia', 'Wannabe superpower.');
+INSERT INTO public.supplier(id, name, description) VALUES (3, 'Hungary', 'Illiberal catholic democracy.');
+INSERT INTO public.supplier(id, name, description) VALUES (4, 'USA', 'Great again.');
 
 
 INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Nuclear Resources', 900000, 'USD', 1, 1,'Fantastic price. Large content ecosystem. Helpful technical support.');
