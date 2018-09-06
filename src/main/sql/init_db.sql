@@ -25,16 +25,17 @@ CREATE TABLE products(
   currency TEXT,
   supplier INTEGER NOT NULL, /*  THis is a foreign key */
   product_category INTEGER NOT NULL, /*  THis is a foreign key */
-  description TEXT
+  description TEXT,
+  picture INTEGER
 );
 
-CREATE TABLE users(
+/* CREATE TABLE users(
   email VARCHAR(50) PRIMARY KEY NOT NULL,
   password VARCHAR(50) NOT NULL,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   phone INTEGER NOT NULL
-);
+); */
 
 CREATE TABLE addresses(
   id INTEGER PRIMARY KEY NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE addresses(
 
 CREATE TABLE shopping_carts(
   id INTEGER PRIMARY KEY NOT NULL,
-  user_email VARCHAR(50) NOT NULL, /* Ez itt egy foreign key */
+  user_email VARCHAR(50), /* Ez itt egy foreign key */
   product_id INTEGER NOT NULL, /* Ez itt egy foreign key */
   product_quantity INTEGER NOT NULL,
   total_price INTEGER NOT NULL
@@ -76,8 +77,8 @@ ALTER TABLE ONLY products
 ALTER TABLE ONLY products
   ADD CONSTRAINT fk_product_product_categories_id_ FOREIGN KEY (product_category) REFERENCES product_categories(id);
 
-ALTER TABLE ONLY shopping_carts
-  ADD CONSTRAINT fk_shopping_carts_users_email FOREIGN KEY (user_email) REFERENCES users(email);
+/* ALTER TABLE ONLY shopping_carts
+  ADD CONSTRAINT fk_shopping_carts_users_email FOREIGN KEY (user_email) REFERENCES users(email); */
 
 ALTER TABLE ONLY shopping_carts
   ADD CONSTRAINT fk_shopping_carts_product_id_id FOREIGN KEY (product_id) REFERENCES products(id);

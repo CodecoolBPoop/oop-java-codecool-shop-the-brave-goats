@@ -5,8 +5,8 @@ import java.sql.*;
 public class ConnectingDB {
 
     private static final String url = "jdbc:postgresql://localhost:5432/blackmarket";
-    private static final String user = "danielszakacs";
-    private static final String password = "montana00";
+    private static final String user = "david";
+    private static final String password = "codecool123";
 
 
     private static Connection getConnection(){
