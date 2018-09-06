@@ -9,6 +9,7 @@ public class Product extends BaseModel {
     private ProductCategory productCategory;
     private Supplier supplier;
     private int numberOfProduct;
+    private int pictureNumber;
 
     public void setNumberOfProduct(int number){
         this.numberOfProduct = number;
@@ -23,6 +24,14 @@ public class Product extends BaseModel {
         this.setPrice(defaultPrice, currencyString);
         this.setSupplier(supplier);
         this.setProductCategory(productCategory);
+    }
+
+    public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier, int pictureNumber) {
+        super(name, description);
+        this.setPrice(defaultPrice, currencyString);
+        this.setSupplier(supplier);
+        this.setProductCategory(productCategory);
+        this.pictureNumber = pictureNumber;
     }
 
     public float getDefaultPrice() {
@@ -82,5 +91,9 @@ public class Product extends BaseModel {
                 this.defaultCurrency.toString(),
                 this.productCategory.getName(),
                 this.supplier.getName());
+    }
+
+    public int getPictureNumber() {
+        return pictureNumber;
     }
 }

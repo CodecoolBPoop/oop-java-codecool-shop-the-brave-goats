@@ -39,11 +39,13 @@ public class ProductController extends HttpServlet {
         context.setVariable("recipient", "World");
         context.setVariable("category1", productCategoryDataStore.find(1).getName());
         context.setVariable("category2", productCategoryDataStore.find(2).getName());
+        context.setVariable("category3", productCategoryDataStore.find(3).getName());
+        context.setVariable("category4", productCategoryDataStore.find(4).getName());
         context.setVariable("supplier1", supplierCategoryStore.find(1).getName());
         context.setVariable("supplier2", supplierCategoryStore.find(2).getName());
         context.setVariable("supplier3", supplierCategoryStore.find(3).getName());
         context.setVariable("supplier4", supplierCategoryStore.find(4).getName());
-        //context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+        context.setVariable("supplier5", supplierCategoryStore.find(5).getName());
         context.setVariable("products", productDataStore.getAll());
         context.setVariable("supplier", SupplierDaoMem.getInstance().getAll());
         engine.process("product/index.html", context, resp.getWriter());
