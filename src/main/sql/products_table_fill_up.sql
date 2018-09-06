@@ -13,6 +13,7 @@ INSERT INTO public.supplier(id, name, description) VALUES (1, 'North Korea', 'Di
 INSERT INTO public.supplier(id, name, description) VALUES (2, 'Russia', 'Wannabe superpower.');
 INSERT INTO public.supplier(id, name, description) VALUES (3, 'Hungary', 'Illiberal catholic democracy.');
 INSERT INTO public.supplier(id, name, description) VALUES (4, 'USA', 'Great again.');
+INSERT INTO public.supplier(id, name, description) VALUES (5, 'Germany', 'Heil Merkel');
 
 
 INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Nuclear Resources', 900000, 'USD', 1, 1,'Fantastic price. Large content ecosystem. Helpful technical support.');
@@ -24,3 +25,5 @@ INSERT INTO public.products( name, price, currency, supplier, product_category, 
 INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Hungarian ID', 500, 'USD', 3, 2, 'Brand new Hungarian ID to travel around the EU.');
 INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Seuso treasures', 2000000, 'USD', 2, 3, 'Beautiful Hungarian treasures from the romanian era');
 INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Serial Killing tutorial', 1000, 'USD', 4, 4, 'Only for the curious');
+INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'How to fake your own death', 600, 'USD', 1, 4, 'Learn how to live outside the system');
+INSERT INTO public.products( name, price, currency, supplier, product_category, description)VALUES ( 'Mein Kampf', 1500, 'USD', 5, 4, 'You know what is this about');
