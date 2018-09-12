@@ -1,9 +1,10 @@
 package com.codecool.shop.sql;
-
+//
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import java.sql.*;
 
 public class ConnectingDB {
-
     private static final String url = "jdbc:postgresql://localhost:5432/blackmarket";
     private static final String user = "danielszakacs";
     private static final String password = "montana00";
