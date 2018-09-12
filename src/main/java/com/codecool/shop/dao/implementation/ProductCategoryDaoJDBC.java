@@ -75,5 +75,18 @@ public class ProductCategoryDaoJDBC implements ProductCategoryDao {
         //return data;
     }
 
+    public ProductCategory findString(String name){
+        try{
+            ResultSet result = ConnectingDB.executeQuery("SELECT * FROM product_categories WHERE name = '" + name + "'");
+            while(result.next()){
+                ProductCategory pr = new ProductCategory(result.getString("name"), result.getString("department"), result.getString("description"));
+                return pr;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     //public ProductCategory findString(String name) { return data.stream().filter(t -> t.getName().equals(name)).findFirst().orElse(null);}
 }

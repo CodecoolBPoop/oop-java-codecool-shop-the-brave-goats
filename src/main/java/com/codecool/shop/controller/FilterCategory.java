@@ -43,7 +43,7 @@ public class FilterCategory extends HttpServlet{
         context.setVariable("supplier5", supplierCategoryStore.find(5).getName());
         context.setVariable("products", productDataStore.getAll());
         context.setVariable("supplier", SupplierDaoMem.getInstance().getAll());
-        context.setVariable("products", productDataStore.getBy(((ProductCategoryDaoMem) productCategoryDataStore).findString(choosedCategory)));
+        context.setVariable("products", productDataStore.getBy(((ProductCategoryDaoJDBC) productCategoryDataStore).findString(choosedCategory)));
         engine.process("product/index.html", context, resp.getWriter());
 
     }
