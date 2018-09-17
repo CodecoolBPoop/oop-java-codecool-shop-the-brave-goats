@@ -23,6 +23,7 @@ public class ConnectingDB {
             try {
                 if (conn != null)
                     conn.close();
+
             } catch (SQLException se) {
                 se.printStackTrace();
             }
