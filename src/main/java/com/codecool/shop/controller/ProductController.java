@@ -54,8 +54,8 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String productId = req.getParameter("product_name");
-        ProductDaoMem productCategoryDaoMem = ProductDaoMem.getInstance();
-        Product product = productCategoryDaoMem.find(Integer.parseInt(productId));
+        ProductDaoJDBC productCategoryDaoJDBC = ProductDaoJDBC.getInstance();
+        Product product = productCategoryDaoJDBC.find(Integer.parseInt(productId));
 
         ShoppingCard shoppingCard = ShoppingCard.getInstance();
         shoppingCard.addShoppingCard(product);

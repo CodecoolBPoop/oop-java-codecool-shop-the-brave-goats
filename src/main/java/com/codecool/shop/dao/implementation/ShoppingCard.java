@@ -9,6 +9,7 @@ public class ShoppingCard {
     //private static List<Product> shoppingCardList = new ArrayList<>();
     private static Map<Product, Integer> shoppingCardList = new HashMap<>();
     private static ShoppingCard shoppingCardInstance = null;
+
     private ShoppingCard(){}
 
     public static ShoppingCard getInstance(){
@@ -19,11 +20,13 @@ public class ShoppingCard {
     }
 
     public void addShoppingCard(Product newProduct){
-        if(!shoppingCardList.containsKey(newProduct)){
-            shoppingCardList.put(newProduct, 1);
-        }else{
-            shoppingCardList.put( newProduct ,shoppingCardList.get(newProduct) +1);
+        for (Product product : shoppingCardList.keySet()) {
+            if(product.getId() == newProduct.getId()){
+                shoppingCardList.put( product ,shoppingCardList.get(product) + 1);
+                return;
+            }
         }
+        shoppingCardList.put(newProduct, 1);
     }
 
     // Call this method when you have the html for the shopping card.
@@ -33,8 +36,11 @@ public class ShoppingCard {
 
     // Delete the product
     public void removeFromShoppingCard(Product product){
-        if(shoppingCardList.containsKey(product)){
-            shoppingCardList.remove(product);
+        for (Product pr: shoppingCardList.keySet()) {
+            if(pr.getId() == product.getId()){
+                shoppingCardList.remove(pr);
+                return;
+            }
         }
     }
 

@@ -6,20 +6,20 @@ DROP TABLE IF EXISTS order_histories;
 DROP TABLE IF EXISTS product_categories;
 
 CREATE TABLE product_categories(
-  id INTEGER PRIMARY KEY not null,
+  id SERIAL PRIMARY KEY NOT NULL ,
   name TEXT,
   department TEXT,
   description TEXT
 );
 
 CREATE TABLE supplier(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   name TEXT,
   description TEXT
 );
 
 CREATE TABLE products(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(200) NOT NULL,
   price INTEGER NOT NULL,
   currency TEXT,
@@ -38,7 +38,7 @@ CREATE TABLE products(
 ); */
 
 CREATE TABLE addresses(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   user_email VARCHAR(50) NOT NULL, /* Ez itt egy foreign key */
   billing_address VARCHAR(10),
   shipping_address VARCHAR(10),
@@ -51,7 +51,7 @@ CREATE TABLE addresses(
 );
 
 CREATE TABLE shopping_carts(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   user_email VARCHAR(50), /* Ez itt egy foreign key */
   product_id INTEGER NOT NULL, /* Ez itt egy foreign key */
   product_quantity INTEGER NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE shopping_carts(
 );
 
 CREATE TABLE order_histories(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY NOT NULL,
   user_email VARCHAR(50) NOT NULL, /* Ez itt egy foreign key */
   product_id INTEGER NOT NULL, /* Ez itt egy foreign key */
   product_quantity INTEGER NOT NULL,
