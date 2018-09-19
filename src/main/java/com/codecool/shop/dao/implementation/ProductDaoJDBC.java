@@ -44,7 +44,7 @@ public class ProductDaoJDBC implements ProductDao {
             while(result.next()){
                 ProductCategory pk = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
                 Supplier su = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
-                Product pr = new Product(result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su, Integer.parseInt(result.getString("picture")));
+                Product pr = new Product(Integer.parseInt(result.getString("id")) ,result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su,Integer.parseInt(result.getString("picture")));
                 return pr;
             }
         } catch (SQLException e) {
@@ -67,7 +67,7 @@ public class ProductDaoJDBC implements ProductDao {
             while(result.next()){
                 ProductCategory pk = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
                 Supplier su = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
-                Product pr = new Product(result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su,Integer.parseInt(result.getString("picture")));
+                Product pr = new Product(Integer.parseInt(result.getString("id")) ,result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su,Integer.parseInt(result.getString("picture")));
                 allProducts.add(pr);
             }
             System.out.println("lista " + allProducts);
@@ -87,9 +87,9 @@ public class ProductDaoJDBC implements ProductDao {
             String supplierNamme = supplier.getName().toLowerCase();
             ResultSet result = ConnectingDB.executeQuery("SELECT * FROM products WHERE supplier = (SELECT id FROM supplier WHERE name = '" + supplierNamme +"' )");
             while(result.next()){
-                ProductCategory productCat = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
-                Supplier supp = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
-                Product pr = new Product(result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), productCat, supp, Integer.parseInt(result.getString("picture")));
+                ProductCategory pk = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
+                Supplier su = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
+                Product pr = new Product(Integer.parseInt(result.getString("id")) ,result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su,Integer.parseInt(result.getString("picture")));
                 listOfProduct.add(pr);
             }
             return listOfProduct;
@@ -107,9 +107,9 @@ public class ProductDaoJDBC implements ProductDao {
             String supplierNamme = productCategory.getName().toLowerCase();
             ResultSet result = ConnectingDB.executeQuery("SELECT * FROM products WHERE product_category = (SELECT id FROM product_categories WHERE name = '" + supplierNamme +"' )");
             while(result.next()){
-                ProductCategory productCat = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
-                Supplier supp = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
-                Product pr = new Product(result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), productCat, supp, Integer.parseInt(result.getString("picture")));
+                ProductCategory pk = ProductCategoryDaoJDBC.getInstance().find(Integer.parseInt(result.getString("product_category")));
+                Supplier su = SupplierDaoJDBC.getInstance().find(Integer.parseInt(result.getString("supplier")));
+                Product pr = new Product(Integer.parseInt(result.getString("id")) ,result.getString("name"), Float.parseFloat(result.getString("price")), result.getString("currency"),result.getString("description"), pk, su,Integer.parseInt(result.getString("picture")));
                 listOfProduct.add(pr);
             }
             return listOfProduct;

@@ -3,11 +3,8 @@ package com.codecool.shop.controller;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.SupplierDao;
-import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
-import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.implementation.*;
 import com.codecool.shop.config.TemplateEngineUtil;
-import com.codecool.shop.dao.implementation.ShoppingCard;
-import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.BaseModel;
 import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
@@ -27,9 +24,9 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ShoppingCard shoppingCard = ShoppingCard.getInstance();
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierCategoryStore = SupplierDaoMem.getInstance();
+        ProductDao productDataStore = ProductDaoJDBC.getInstance();
+        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoJDBC.getInstance();
+        SupplierDao supplierCategoryStore = SupplierDaoJDBC.getInstance();
 
         Map<Product, Integer> mapListOfProducts = shoppingCard.getShoppingCardList();
         System.out.println(mapListOfProducts);
@@ -62,7 +59,7 @@ public class CartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productId = req.getParameter("delete-product");
-        Product procduct = ProductDaoMem.getInstance().find(Integer.parseInt(productId));
+        Product procduct = ProductDaoJDBC.getInstance().find(Integer.parseInt(productId));
 
         ShoppingCard shoppingCard = ShoppingCard.getInstance();
         shoppingCard.removeFromShoppingCard(procduct);

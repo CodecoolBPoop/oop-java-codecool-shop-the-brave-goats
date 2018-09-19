@@ -4,6 +4,7 @@ import java.util.Currency;
 
 public class Product extends BaseModel {
 
+    private int id;
     private float defaultPrice;
     private Currency defaultCurrency;
     private ProductCategory productCategory;
@@ -26,12 +27,18 @@ public class Product extends BaseModel {
         this.setProductCategory(productCategory);
     }
 
-    public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier, int pictureNumber) {
+    public Product(int id,String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier, int pictureNumber) {
         super(name, description);
+        this.id = id;
         this.setPrice(defaultPrice, currencyString);
         this.setSupplier(supplier);
         this.setProductCategory(productCategory);
         this.pictureNumber = pictureNumber;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     public float getDefaultPrice() {
